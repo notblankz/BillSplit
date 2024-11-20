@@ -43,7 +43,7 @@ function ProfilePage() {
 
         try {
             setIsLoading(true);
-            await axios.post(`http://localhost:5000/db/users/addUPI?upi=${upiId}&phone=${phone}&sub=${userJSON.sub}`)
+            await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/db/users/addUPI?upi=${upiId}&phone=${phone}&sub=${userJSON.sub}`)
             .then((response) => {
                 console.log(response.data);
             });
@@ -62,7 +62,7 @@ function ProfilePage() {
             try {
                 console.log("Fetching user data...");
                 const response = await axios.get(
-                    `http://localhost:5000/db/users/getUser?sub=${userJSON.sub}`
+                    `${import.meta.env.VITE_BACKEND_BASE_URL}/db/users/getUser?sub=${userJSON.sub}`
                 );
                 console.log(response.data);
 

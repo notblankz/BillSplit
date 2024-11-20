@@ -15,7 +15,7 @@ function SplitImage({ participantSplitAmounts, billName, billTotal }) {
 
     useEffect(() => {
         // User-provided information
-        axios.get(`http://localhost:5000/db/users/getUser?sub=${user.sub}`)
+        axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}/db/users/getUser?sub=${user.sub}`)
         .then((response) => {
             console.log(response.data.upi)
             console.log(response.data.phone)

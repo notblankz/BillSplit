@@ -20,7 +20,7 @@ function DownloadSplitImage() {
             try {
                 const user = JSON.parse(localStorage.getItem("user"));
                 const response = await axios.put(
-                    "http://localhost:5000/db/users/addBill",
+                    `${import.meta.env.VITE_BACKEND_BASE_URL}/db/users/addBill`,
                     {
                         sub: user.sub,
                         storageBillData: { billData, participantSplitAmounts }

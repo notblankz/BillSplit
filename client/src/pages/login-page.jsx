@@ -28,7 +28,7 @@ function LoginPage() {
 
             // Send user info to the backend
             await axios.post(
-                "http://localhost:5000/db/users",
+                `${import.meta.env.VITE_BACKEND_BASE_URL}/db/users`,
                 decodedUserInfo,
                 {
                     headers: {

@@ -65,7 +65,7 @@ export default function ExportPage() {
             formData.append("billName", data.billName);
             formData.append("billImage", billFile);
 
-            const response = await axios.post("http://localhost:5000/api/parse", formData, {
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/parse`, formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
 
