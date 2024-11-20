@@ -16,7 +16,7 @@ import { format } from 'date-fns';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Navbar } from "@/components/Navbar";
+import Navbar from "@/components/Navbar";
 
 function ProfilePage() {
     const navigate = useNavigate();
