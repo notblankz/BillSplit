@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import SplitImage from "../components/SplitImage.jsx";
 import axios from "axios";
 import { useEffect } from "react";
-import Navbar from "@/components/Navbar.jsx";
+import { Navbar } from "@/components/Navbar";
 
 function DownloadSplitImage() {
 
