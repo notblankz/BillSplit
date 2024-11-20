@@ -28,7 +28,7 @@ async function startServer() {
             console.log("Server is running on port 5000")
         })
     } catch (e) {
-        throw new Error(e)
+        throw e;
     }
 }
 
