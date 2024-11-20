@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     Card,
     CardContent,
@@ -24,14 +24,14 @@ export default function ExportPage() {
     const [base64BillImage, setBase64BillImage] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-
     const isLoggedIn = localStorage.getItem("user") !== null
 
-    if (!isLoggedIn) {
-        console.log("User not logged in");
-        navigate("/");
-        return null;
-    }
+    useEffect(() => {
+        if (!isLoggedIn) {
+            console.log("User not logged in");
+            navigate("/");
+        }
+    }, [])
 
     const handleFileChange = (event) => {
         const selectedBillFile = event.target.files[0];

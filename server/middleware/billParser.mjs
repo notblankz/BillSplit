@@ -101,23 +101,6 @@ export async function createJSON(req, res) {
     }
 }
 
-
-// async function extractText(base64String) {
-//     try {
-//         const ocrResponse = await ocrSpace(`data:image/jpeg;base64,${base64String}`,{
-//             apiKey: process.env.OCR_API_KEY,
-//             scale: true,
-//             isTable: true,
-//             OCREngine: 2
-//         });
-//         const extractedText = ocrResponse.ParsedResults.map(({ ParsedText }) => ParsedText)
-//         console.log("Text extracted")
-//         return extractedText[0];
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-
 async function extractText(base64String) {
     try {
         const messages = [

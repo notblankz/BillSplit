@@ -120,6 +120,24 @@ router.get("/getUser", async (req, res) => {
 }
 );
 
+router.delete("/deleteUser", (req, res) => {
+    const db = getDatabase();
+    const sub = req.query.sub;
+
+    try {
+        const result = db.collection("users").deleteOne({ sub: sub });
+
+        if (result) {
+            res.status(200).send({ message: "User deleted successfully" });
+        } else {
+            res.status(404).send({ error: "User not found" });
+        }
+    } catch (e) {
+        res.status(500).send({ error: "Failed to delete user from the database" });
+        throw e;
+    }
+})
+
 router.get("/", async (req, res) => {
     const db = getDatabase();
     const users = await db.collection("users").find({}).toArray();

@@ -17,6 +17,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from "@/components/Navbar";
+import { googleLogout } from '@react-oauth/google';
 
 function ProfilePage() {
     const navigate = useNavigate();
@@ -54,6 +55,24 @@ function ProfilePage() {
             setIsOpen(false);
         }
 
+    }
+
+    const handleSignOut = async () => {
+        googleLogout();
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/db/users/deleteUser?sub=${userJSON.sub}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+
+        if (response.status === 200) {
+            console.log("User deleted");
+            localStorage.removeItem("user");
+            navigate("/");
+        } else {
+            console.error("Error deleting user");
+        }
     }
 
     // Fetch user data
@@ -143,7 +162,7 @@ function ProfilePage() {
                         </Dialog>
                     </CardHeader>
                     <CardContent>
-                        <div className="space-y-4">
+                        <div className="space-y-4 flex flex-col">
                             <div className="flex items-center space-x-2">
                                 <Phone className="h-4 w-4" />
                                 <span>{user.phone || 'No phone number'}</span>
@@ -151,6 +170,9 @@ function ProfilePage() {
                             <div className="flex items-center space-x-2">
                                 <IndianRupee className="h-4 w-4" />
                                 <span>{user.upi || 'No UPI ID'}</span>
+                            </div>
+                            <div className='self-end'>
+                                <Button variant="destructive" onClick={handleSignOut} >Sign Out</Button>
                             </div>
                         </div>
                     </CardContent>
