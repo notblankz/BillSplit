@@ -14,7 +14,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Loader2 } from "lucide-react"
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar.jsx";
 
 // implement isLoggedIn here also
 
