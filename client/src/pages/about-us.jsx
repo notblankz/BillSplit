@@ -56,44 +56,6 @@ function AboutUsPage() {
                     </div>
                 </div>
 
-                {/* Team Section */}
-                <div className="mb-20">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">Meet Our Team</h2>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {[
-                            {
-                                name: "Aahan Sharma",
-                                role: "Frontend & AI",
-                                image: "/aahan_pfp.jpeg",
-                                bio: "PES2UG23CS007"
-                            },
-                            {
-                                name: "Aayush Jha",
-                                role: "Database Management",
-                                image: "/aayush_pfp.jpg",
-                                bio: "PES2UG23CS015"
-                            },
-                            {
-                                name: "Aarsh Jain",
-                                role: "Backend & Routing",
-                                image: "/aarsh_pfp.jpeg",
-                                bio: "PES2UG23CS010"
-                            }
-                        ].map((member) => (
-                            <div key={member.name} className="bg-card p-6 rounded-lg text-center">
-                                <img
-                                    src={member.image}
-                                    alt={member.name}
-                                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                                />
-                                <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-                                <p className="text-primary mb-3">{member.role}</p>
-                                <p className="text-sm text-muted-foreground mb-4">{member.bio}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
                 {/* Values Section */}
                 <div className="grid md:grid-cols-3 gap-8 mb-20">
                     {[
